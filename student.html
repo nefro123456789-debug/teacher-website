@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Student Marks Manager</title>
+    <meta name="description" content="Student dashboard for viewing marks and course work">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Background Animation -->
+    <div class="background-gradient"></div>
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="8" fill="url(#gradient1)" />
+                        <path d="M16 8L20 14H12L16 8Z" fill="white" opacity="0.9" />
+                        <rect x="12" y="16" width="8" height="8" rx="2" fill="white" opacity="0.9" />
+                        <defs>
+                            <linearGradient id="gradient1" x1="0" y1="0" x2="32" y2="32">
+                                <stop offset="0%" stop-color="#667eea" />
+                                <stop offset="100%" stop-color="#764ba2" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <h1>Student Dashboard</h1>
+                </div>
+                <a href="index.html" class="btn btn-danger btn-small">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Logout
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Section 1: Find Your Marks -->
+            <section class="card search-section">
+                <h2 class="section-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                    </svg>
+                    Find Your Marks
+                </h2>
+                <form id="student-search-form" class="form">
+                    <div class="form-group">
+                        <label for="search-student-name">Your Name</label>
+                        <input type="text" id="search-student-name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="search-student-password">Your Password</label>
+                        <input type="password" id="search-student-password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="m21 21-4.35-4.35" />
+                        </svg>
+                        View My Marks
+                    </button>
+                </form>
+
+                <!-- Student Marks Result -->
+                <div id="student-marks-result" class="student-marks-result hidden">
+                    <div class="result-header-student">
+                        <h3 id="result-student-name"></h3>
+                        <span id="result-average" class="average-badge"></span>
+                    </div>
+                    <div id="marks-table" class="marks-table"></div>
+                </div>
+            </section>
+
+            <!-- Section 2: View Course Work -->
+            <section class="card coursework-view-section">
+                <h2 class="section-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                    </svg>
+                    Course Work & Assignments
+                </h2>
+                <div id="student-coursework-list" class="coursework-list"></div>
+                <div id="empty-state-student-coursework" class="empty-state">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                    </svg>
+                    <p>No assignments available</p>
+                    <span>Check back later for new assignments</span>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12" />
+        </svg>
+        <span id="toast-message"></span>
+    </div>
+
+    <script src="student.js"></script>
+</body>
+
+</html>
